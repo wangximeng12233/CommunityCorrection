@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {#    {% load static %}#}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>社区矫正中心信息化管理系统</title>
+
+    <link rel="stylesheet" href='/static/css/simplebar.css'>
+
+    <link href=" https:
+    //fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/css/feather.css">
+
+    <link rel="stylesheet" href="/static/css/select2.css">
+
+    <link rel="stylesheet" href="/static/css/jquery.steps.css">
+    <link rel="stylesheet" href="/static/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="/static/css/quill.snow.css">
+
+    <link rel="stylesheet" href="/static/css/daterangepicker.css">
+
+    <link rel="stylesheet" href="/static/css/app-light.css" id="lightTheme">
+    <link rel="stylesheet" href="/static/css/app-dark.css" id="darkTheme" disabled>
+</head>
+<body class="vertical light  ">
+<div class="wrapper" style="display: none">
+    <input type="text" value="{{ role }}" style="display: none" id="role">
+    <nav class="topnav navbar navbar-light">
+        <button type="button" class="navbar-toggler text-muted mt-2 p-0 mr-3 collapseSidebar">
+            <i class="fe fe-menu navbar-toggler-icon"></i>
+        </button>
+        <ul class="nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="avatar avatar-sm mt-2">
+                    <img src="/static/assets/avatars/face-1.jpg" alt="..." class="avatar-img rounded-circle">
+                    </span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="/login/">退出登录</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <aside class="sidebar-left border-right bg-white shadow" id="leftSidebar" data-simplebar>
+        <a href="#" class="btn collapseSidebar toggle-btn d-lg-none text-muted ml-2 mt-3" data-toggle="toggle">
+            <i class="fe fe-x"><span class="sr-only"></span></i>
+        </a>
+        <nav class="vertnav navbar navbar-light">
+            <ul class="navbar-nav flex-fill w-100 mb-2">
+                <li class="nav-item dropdown">
+                    <a href="#" data-toggle="collapse" aria-expanded="false" class="nav-link">
+                        <i class="fe fe-home fe-16"></i>
+                        <span class="ml-3 item-text">主页</span>
+                    </a>
+
+                </li>
+            </ul>
+            <p class="text-muted nav-heading mt-4 mb-1">
+                <span>菜单</span>
+            </p>
+            <ul class="navbar-nav flex-fill w-100 mb-2">
+{#                服刑#}
+                <li id="fx" class="nav-item dropdown">
+                    <a href="#ui-elements" data-toggle="collapse" aria-expanded="false"
+                       class="dropdown-toggle nav-link">
+                        <i class="fe fe-box fe-16"></i>
+                        <span class="ml-3 item-text">服役人员功能列表</span>
+                    </a>
+                    <ul class="collapse list-unstyled pl-4 w-100" id="ui-elements">
+                        <li class="nav-item">
+                            <a class="nav-link pl-3" href="./ui-color.html"><span class="ml-1 item-text">心理指导申请</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-3" href="./ui-typograpy.html"><span
+                                    class="ml-1 item-text">就业指导申请</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-3" href="./ui-icons.html"><span
+                                    class="ml-1 item-text">风险评估</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-3" href="./ui-buttons.html"><span
+                                    class="ml-1 item-text">矫正解除</span></a>
+                        </li>
+                    </ul>
+                </li>
+{#                心理辅导员#}
+                <li id="xl" class="nav-item dropdown">
+                    <a href="#ui-elements" data-toggle="collapse" aria-expanded="false"
+                       class="dropdown-toggle nav-link">
+                        <i class="fe fe-box fe-16"></i>
+                        <span class="ml-3 item-text">心理咨询师功能列表</span>
+                    </a>
+                    <ul class="collapse list-unstyled pl-4 w-100" id="ui-elements">
+                        <li class="nav-item">
+                            <a class="nav-link pl-3" href="./ui-color.html"><span class="ml-1 item-text">心理指导</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-3" href="./ui-typograpy.html"><span
+                                    class="ml-1 item-text">就业指导</span></a>
+                        </li>
+
+                    </ul>
+                </li>
+{#                管理员#}
+                <li id="gl" class="nav-item dropdown">
+                    <a href="#ui-elements" data-toggle="collapse" aria-expanded="false"
+                       class="dropdown-toggle nav-link">
+                        <i class="fe fe-box fe-16"></i>
+                        <span class="ml-3 item-text">管理员功能列表</span>
+                    </a>
+                    <ul class="collapse list-unstyled pl-4 w-100" id="ui-elements">
+                        <li class="nav-item">
+                            <a class="nav-link pl-3" href="./ui-color.html"><span class="ml-1 item-text">公告编辑</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-3" href="./ui-typograpy.html"><span
+                                    class="ml-1 item-text">服刑人员信息</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-3" href="./ui-typograpy.html"><span
+                                    class="ml-1 item-text">心理咨询师信息</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-3" href="./ui-typograpy.html"><span
+                                    class="ml-1 item-text">矫正解除</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-3" href="./ui-typograpy.html"><span
+                                    class="ml-1 item-text">风险评估</span></a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-item w-100">
+                    <a class="nav-link" href="/information/">
+                        <i class="fe fe-calendar fe-16"></i>
+                        <span class="ml-3 item-text">个人信息</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <main role="main" class="main-content">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-0">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-3 text-center">
+<span class="circle circle-sm bg-primary">
+<i class="fe fe-16 fe-user text-white mb-0"></i>
+</span>
+                                        </div>
+                                        <div class="col pr-0">
+                                            <p class="small text-muted mb-0">矫正服刑人员人数</p>
+                                            <span class="h3 mb-0">{{ fxcount }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-0">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-3 text-center">
+<span class="circle circle-sm bg-primary">
+<i class="fe fe-16 fe-user text-white mb-0"></i>
+</span>
+                                        </div>
+                                        <div class="col pr-0">
+                                            <p class="small text-muted mb-0">心理咨询师人数</p>
+                                            <span class="h3 mb-0">{{ xlcount }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-0">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-3 text-center">
+<span class="circle circle-sm bg-primary">
+<i class="fe fe-16 fe-user text-white mb-0"></i>
+</span>
+                                        </div>
+                                        <div class="col pr-0">
+                                            <p class="small text-muted mb-0">管理员人数</p>
+                                            <span class="h3 mb-0">{{ glcount }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-0">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-3 text-center">
+<span class="circle circle-sm bg-primary">
+<i class="fe fe-16 fe-user text-white mb-0"></i>
+</span>
+                                        </div>
+                                        <div class="col pr-0">
+                                            <p class="small text-muted mb-0">系统访问次数</p>
+                                            <span class="h3 mb-0">{{ visit }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3>公告栏</h3>
+        </div>
+        <div style="border:1px solid darkgray;width: 100%;height:auto;margin-top: 30px">
+            <p style="margin: 2%;width: 96%;font-family: 微软雅黑;font-size: 20px">
+                啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+            </p>
+            <p style="margin-top: 2%;margin-right: 2%;text-align: right">2022年4月11日</p>
+        </div>
+    </main>
+</div>
+<script src="/static/js/jquery.min.js" type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script src="/static/js/popper.min.js" type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script src="/static/js/moment.min.js" type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script src="/static/js/bootstrap.min.js" type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script src="/static/js/simplebar.min.js" type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script src='/static/js/daterangepicker.js' type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script src="/static/js/tinycolor-min.js" type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script src="/static/js/config.js" type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script src="/static/js/d3.min.js" type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script src="/static/js/topojson.min.js" type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script src="/static/js/datamaps.all.min.js" type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script src="/static/js/datamaps-zoomto.js" type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script src="/static/js/datamaps.custom.js" type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script src="/static/js/Chart.min.js" type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script type="980bb5403e794381f3ecea00-text/javascript">
+      /* defind global options */
+      Chart.defaults.global.defaultFontFamily = base.defaultFontFamily;
+      Chart.defaults.global.defaultFontColor = colors.mutedColor;
+
+
+
+
+
+</script>
+<script src="/static/js/gauge.min.js" type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script src="/static/js/jquery.sparkline.min.js" type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script src="/static/js/apexcharts.min.js" type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script src="/static/js/apexcharts.custom.js" type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script src='/static/js/jquery.mask.min.js' type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script src='/static/js/select2.min.js' type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script src='/static/js/jquery.steps.min.js' type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script src='/static/js/jquery.validate.min.js' type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script src='/static/js/jquery.timepicker.js' type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script src='/static/js/quill.min.js' type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script type="980bb5403e794381f3ecea00-text/javascript">
+      $('.select2').select2(
+      {
+        theme: 'bootstrap4',
+      });
+      $('.select2-multi').select2(
+      {
+        multiple: true,
+        theme: 'bootstrap4',
+      });
+      $('.drgpicker').daterangepicker(
+      {
+        singleDatePicker: true,
+        timePicker: false,
+        showDropdowns: true,
+        locale:
+        {
+          format: 'MM/DD/YYYY'
+        }
+      });
+      $('.time-input').timepicker(
+      {
+        'scrollDefault': 'now'
+      });
+      /** date range picker */
+      if ($('.datetimes').length)
+      {
+        $('.datetimes').daterangepicker(
+        {
+          timePicker: true,
+          startDate: moment().startOf('hour'),
+          endDate: moment().startOf('hour').add(32, 'hour'),
+          locale:
+          {
+            format: 'M/DD hh:mm A'
+          }
+        });
+      }
+      var start = moment().subtract(29, 'days');
+      var end = moment();
+
+      function cb(start, end)
+      {
+        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+      }
+      $('#reportrange').daterangepicker(
+      {
+        startDate: start,
+        endDate: end,
+        ranges:
+        {
+          'Today': [moment(), moment()],
+          'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+          'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+          'This Month': [moment().startOf('month'), moment().endOf('month')],
+          'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        }
+      }, cb);
+      cb(start, end);
+      $('.input-placeholder').mask("00/00/0000",
+      {
+        placeholder: "__/__/____"
+      });
+      $('.input-zip').mask('00000-000',
+      {
+        placeholder: "____-___"
+      });
+      $('.input-money').mask("#.##0,00",
+      {
+        reverse: true
+      });
+      $('.input-phoneus').mask('(000) 000-0000');
+      $('.input-mixed').mask('AAA 000-S0S');
+      $('.input-ip').mask('0ZZ.0ZZ.0ZZ.0ZZ',
+      {
+        translation:
+        {
+          'Z':
+          {
+            pattern: /[0-9]/,
+            optional: true
+          }
+        },
+        placeholder: "___.___.___.___"
+      });
+      // editor
+      var editor = document.getElementById('editor');
+      if (editor)
+      {
+        var toolbarOptions = [
+          [
+          {
+            'font': []
+          }],
+          [
+          {
+            'header': [1, 2, 3, 4, 5, 6, false]
+          }],
+          ['bold', 'italic', 'underline', 'strike'],
+          ['blockquote', 'code-block'],
+          [
+          {
+            'header': 1
+          },
+          {
+            'header': 2
+          }],
+          [
+          {
+            'list': 'ordered'
+          },
+          {
+            'list': 'bullet'
+          }],
+          [
+          {
+            'script': 'sub'
+          },
+          {
+            'script': 'super'
+          }],
+          [
+          {
+            'indent': '-1'
+          },
+          {
+            'indent': '+1'
+          }], // outdent/indent
+          [
+          {
+            'direction': 'rtl'
+          }], // text direction
+          [
+          {
+            'color': []
+          },
+          {
+            'background': []
+          }], // dropdown with defaults from theme
+          [
+          {
+            'align': []
+          }],
+          ['clean'] // remove formatting button
+        ];
+        var quill = new Quill(editor,
+        {
+          modules:
+          {
+            toolbar: toolbarOptions
+          },
+          theme: 'snow'
+        });
+      }
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function()
+      {
+        'use strict';
+        window.addEventListener('load', function()
+        {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form)
+          {
+            form.addEventListener('submit', function(event)
+            {
+              if (form.checkValidity() === false)
+              {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+
+
+
+
+
+</script>
+<script src="/static/js/apps.js" type="980bb5403e794381f3ecea00-text/javascript"></script>
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js"
+        data-cf-settings="980bb5403e794381f3ecea00-|49" defer=""></script>
+
+<script>
+    window.onload = function(){
+        var role = $("#role").val()
+        if(role=="服刑人员"){
+            $("#gl").css("display","none")
+            $("#xl").css("display","none")
+        }
+        if(role=="心理咨询师"){
+            $("#gl").css("display","none")
+            $("#fx").css("display","none")
+        }
+        if(role=="管理员"){
+            $("#fx").css("display","none")
+            $("#xl").css("display","none")
+        }
+        $(".wrapper").css("display","block")
+    };
+
+</script>
+</body>
+</html>
